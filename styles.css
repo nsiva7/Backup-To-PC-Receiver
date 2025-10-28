@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #4f46e5;
+    --primary-color: #ed702d;
     --secondary-color: #7c3aed;
     --accent-color: #ec4899;
     --success-color: #10b981;
@@ -97,7 +97,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ed702d 0%, #2153cc 100%);
     padding: 4rem 0;
     text-align: center;
     color: white;
