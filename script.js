@@ -15,7 +15,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Scroll reveal animation
+// Scroll reveal animation - optional for specific elements
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -29,17 +29,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all scroll reveal elements
-document.querySelectorAll('.scroll-reveal').forEach(element => {
+// Only observe elements that explicitly have the 'animated' class
+document.querySelectorAll('.scroll-reveal.animated').forEach(element => {
     observer.observe(element);
-});
-
-// Add scroll reveal class to sections on page load
-window.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.classList.add('scroll-reveal');
-    });
 });
 
 // Active navigation link on scroll
@@ -67,20 +59,11 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add fade-in animation to hero content
-window.addEventListener('load', () => {
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        heroContent.classList.add('fade-in');
-    }
-});
-
-// Mobile menu toggle (for future implementation)
+// Mobile menu toggle
 const createMobileMenu = () => {
     const navbar = document.querySelector('.navbar .container');
     const navLinks = document.querySelector('.nav-links');
     
-    // Only create mobile menu on small screens
     if (window.innerWidth <= 768 && !document.querySelector('.mobile-menu-toggle')) {
         const menuToggle = document.createElement('button');
         menuToggle.className = 'mobile-menu-toggle';
@@ -114,15 +97,9 @@ window.addEventListener('resize', () => {
 // Initialize on page load
 createMobileMenu();
 
-// Add loading animation to images
+// Ensure images load properly
 document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-    img.addEventListener('load', function() {
-        this.style.opacity = '0';
-        this.style.transition = 'opacity 0.3s ease';
-        setTimeout(() => {
-            this.style.opacity = '1';
-        }, 10);
-    });
+    img.style.opacity = '1';
 });
 
 // Console message
